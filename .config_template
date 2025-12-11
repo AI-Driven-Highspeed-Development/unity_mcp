@@ -1,0 +1,6 @@
+{
+    "module_name": "unity_mcp",
+    "path": {
+        "data": "./project/data/unity_mcp"
+    }
+}
