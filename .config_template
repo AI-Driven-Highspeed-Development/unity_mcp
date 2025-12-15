@@ -1,6 +1,6 @@
 {
-    "module_name": "unity_mcp",
+    "module_name": "unity_adhd_mcp",
     "path": {
-        "data": "./project/data/unity_mcp"
+        "data": "./project/data/unity_adhd_mcp"
     }
 }

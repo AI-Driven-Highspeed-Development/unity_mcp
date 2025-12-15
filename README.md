@@ -1,4 +1,4 @@
-# Unity MCP
+# Unity ADHD MCP
 
 Model Context Protocol server for Unity module registry queries.
 
@@ -36,13 +36,13 @@ The following Unity module types are supported:
 ### As MCP Server
 
 ```bash
-python -m mcps.unity_mcp.unity_mcp
+python -m mcps.unity_adhd_mcp.unity_adhd_mcp
 ```
 
 ### As Library
 
 ```python
-from mcps.unity_mcp import UnityController, get_unity_controller
+from mcps.unity_adhd_mcp import UnityController, get_unity_controller
 
 controller = get_unity_controller()
 
@@ -59,11 +59,11 @@ summary = controller.refresh_registry()
 ## Module Structure
 
 ```
-mcps/unity_mcp/
+mcps/unity_adhd_mcp/
 ├── __init__.py           # Exports, path setup, auto-refresh
 ├── init.yaml             # Module metadata (type: mcp)
 ├── README.md             # This file
-├── unity_mcp.py          # FastMCP server with tool decorators
+├── unity_adhd_mcp.py     # FastMCP server with tool decorators
 ├── unity_controller.py   # Business logic implementation
 └── refresh.py            # Register in .vscode/mcp.json
 ```

@@ -1,7 +1,7 @@
 version: 0.0.1
-folder_path: mcps/unity_mcp
+folder_path: mcps/unity_adhd_mcp
 type: mcp
 requirements:
   - https://github.com/AI-Driven-Highspeed-Development/Logger-Util.git
   - https://github.com/AI-Driven-Highspeed-Development/unity_module_registry_manager.git
-repo_url: https://github.com/AI-Driven-Highspeed-Development/unity_mcp.git
+repo_url: https://github.com/AI-Driven-Highspeed-Development/unity_adhd_mcp.git

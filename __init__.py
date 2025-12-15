@@ -1,17 +1,17 @@
 """
-Unity MCP - Model Context Protocol server for Unity module registry queries.
+Unity ADHD MCP - Model Context Protocol server for Unity module registry queries.
 
 Provides tools for AI agents to query and manage the Unity module registry,
 which tracks modules in a Unity project (cores, managers, features, etc.).
 
 Usage as MCP Server:
-    python -m mcps.unity_mcp.unity_mcp
+    python -m mcps.unity_adhd_mcp.unity_adhd_mcp
 
 Refresh to register in .vscode/mcp.json:
-    python adhd_framework.py refresh --module unity_mcp
+    python adhd_framework.py refresh --module unity_adhd_mcp
 
 Usage as Library:
-    from mcps.unity_mcp import UnityController, get_unity_controller
+    from mcps.unity_adhd_mcp import UnityController, get_unity_controller
     controller = get_unity_controller()
     result = controller.list_modules(types=["feature", "manager"])
 """
@@ -24,8 +24,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.getcwd()  # Use current working directory as project root
 sys.path.insert(0, project_root)
 
-from mcps.unity_mcp.unity_mcp import mcp
-from mcps.unity_mcp.unity_controller import UnityController, get_unity_controller
+from mcps.unity_adhd_mcp.unity_adhd_mcp import mcp
+from mcps.unity_adhd_mcp.unity_controller import UnityController, get_unity_controller
 
 __all__ = [
     "mcp",

@@ -1,6 +1,6 @@
-"""CLI commands and registration for unity_mcp.
+"""CLI commands and registration for unity_adhd_mcp.
 
-Exposes Unity MCP tools as CLI commands for command-line usage.
+Exposes Unity ADHD MCP tools as CLI commands for command-line usage.
 """
 
 from __future__ import annotations
@@ -8,7 +8,7 @@ from __future__ import annotations
 import argparse
 import json
 
-from mcps.unity_mcp.unity_controller import UnityController
+from mcps.unity_adhd_mcp.unity_controller import UnityController
 from managers.cli_manager import CLIManager, ModuleRegistration, Command, CommandArg
 
 
@@ -85,17 +85,17 @@ def generate_report_cmd(args: argparse.Namespace) -> int:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def register_cli() -> None:
-    """Register unity_mcp commands with CLIManager."""
+    """Register unity_adhd_mcp commands with CLIManager."""
     cli = CLIManager()
     cli.register_module(ModuleRegistration(
-        module_name="unity_mcp",
+        module_name="unity_adhd_mcp",
         short_name="um",
         description="Unity module registry CLI",
         commands=[
             Command(
                 name="list",
                 help="List Unity modules",
-                handler="mcps.unity_mcp.unity_cli:list_modules_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:list_modules_cmd",
                 args=[
                     CommandArg(
                         name="--types",
@@ -107,7 +107,7 @@ def register_cli() -> None:
             Command(
                 name="get",
                 help="Get details for a Unity module",
-                handler="mcps.unity_mcp.unity_cli:get_module_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:get_module_cmd",
                 args=[
                     CommandArg(name="name", help="Module name"),
                 ],
@@ -115,7 +115,7 @@ def register_cli() -> None:
             Command(
                 name="deps",
                 help="Get dependencies for a Unity module",
-                handler="mcps.unity_mcp.unity_cli:get_deps_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:get_deps_cmd",
                 args=[
                     CommandArg(name="name", help="Module name"),
                 ],
@@ -123,7 +123,7 @@ def register_cli() -> None:
             Command(
                 name="dependents",
                 help="Find modules that depend on a given module",
-                handler="mcps.unity_mcp.unity_cli:find_dependents_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:find_dependents_cmd",
                 args=[
                     CommandArg(name="name", help="Module name or path"),
                 ],
@@ -131,17 +131,17 @@ def register_cli() -> None:
             Command(
                 name="refresh",
                 help="Rescan Unity project and update registry",
-                handler="mcps.unity_mcp.unity_cli:refresh_registry_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:refresh_registry_cmd",
             ),
             Command(
                 name="status",
                 help="Get registry status and statistics",
-                handler="mcps.unity_mcp.unity_cli:get_status_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:get_status_cmd",
             ),
             Command(
                 name="report",
                 help="Generate markdown registry report",
-                handler="mcps.unity_mcp.unity_cli:generate_report_cmd",
+                handler="mcps.unity_adhd_mcp.unity_cli:generate_report_cmd",
             ),
         ],
     ))

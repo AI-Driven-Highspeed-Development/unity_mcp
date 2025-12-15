@@ -1,8 +1,8 @@
 """
-Refresh script for unity_mcp.
+Refresh script for unity_adhd_mcp.
 
 Registers this MCP server in .vscode/mcp.json and optionally registers CLI commands.
-Run via: python adhd_framework.py refresh --module unity_mcp
+Run via: python adhd_framework.py refresh --module unity_adhd_mcp
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ from utils.logger_util.logger import Logger
 def _register_cli() -> None:
     """Register CLI commands if cli_manager is available."""
     try:
-        from mcps.unity_mcp.unity_cli import register_cli
+        from mcps.unity_adhd_mcp.unity_cli import register_cli
         register_cli()
     except ImportError:
         # cli_manager not available or CLI file not created yet - skip silently
@@ -30,8 +30,8 @@ def _register_cli() -> None:
 
 def main() -> None:
     """Register this MCP in .vscode/mcp.json."""
-    logger = Logger(name="unity_mcpRefresh")
-    logger.info("Starting unity_mcp refresh...")
+    logger = Logger(name="unity_adhd_mcpRefresh")
+    logger.info("Starting unity_adhd_mcp refresh...")
 
     try:
         mcp_json_path = Path.cwd() / ".vscode" / "mcp.json"
@@ -51,8 +51,8 @@ def main() -> None:
             mcp_config["servers"] = {}
         
         # MCP server configuration
-        mcp_key = "unity_mcp"
-        module_path = "mcps.unity_mcp.unity_mcp"
+        mcp_key = "unity_adhd_mcp"
+        module_path = "mcps.unity_adhd_mcp.unity_adhd_mcp"
         
         # Only add if not already present
         if mcp_key not in mcp_config["servers"]:
@@ -74,9 +74,9 @@ def main() -> None:
         # Register CLI commands (optional - skipped if cli_manager unavailable)
         _register_cli()
         
-        logger.info("unity_mcp refresh completed successfully.")
+        logger.info("unity_adhd_mcp refresh completed successfully.")
     except Exception as e:
-        logger.error(f"unity_mcp refresh failed: {e}")
+        logger.error(f"unity_adhd_mcp refresh failed: {e}")
         sys.exit(1)
 
 
